@@ -31,7 +31,7 @@ namespace DesafioFull.Controllers
             }
             if (!string.IsNullOrEmpty(cpfCnpj))
             {
-                fornecedores = fornecedores.Where(f => f.CpfCnpj.Contains(cpfCnpj));
+                fornecedores = fornecedores.Where(f => f.CnpjOuCPF.Contains(cpfCnpj));
             }
 
             return Ok(await fornecedores.ToListAsync());
@@ -42,7 +42,7 @@ namespace DesafioFull.Controllers
         {
             // Validação de CNPJ/CPF único
             bool cnpjCpfExistente = await _context.Fornecedores
-                .AnyAsync(f => f.CpfCnpj == fornecedor.CpfCnpj);
+                .AnyAsync(f => f.CnpjOuCPF == fornecedor.CnpjOuCPF);
 
             if (cnpjCpfExistente)
             {
