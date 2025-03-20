@@ -22,10 +22,8 @@ public class CepService
             return false;
         }
 
-        // Deserializa a resposta em um objeto dinâmico
         var endereco = JsonConvert.DeserializeObject<dynamic>(response);
 
-        // Valida se o retorno não é nulo e se contém os dados necessários
         return endereco != null && endereco.cep != null;
     }
 }
