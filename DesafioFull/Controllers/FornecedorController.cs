@@ -55,7 +55,7 @@ namespace DesafioFull.Controllers
                 return BadRequest("CEP inválido.");
             }
 
-            if (fornecedor.Tipo.Equals("Física")  && fornecedor.Empresa.EstadoEquals.("PR")
+            if (fornecedor.Tipo.Equals("Física")  && fornecedor.Empresa.Estado.Equals("PR"))
             {
                 if (fornecedor.DataNascimento.HasValue && fornecedor.DataNascimento.Value.AddYears(18) > DateTime.Now)
                 {
